@@ -1,0 +1,514 @@
+*{
+    --event1S: 0;
+    --event1F: 0;
+    --event2S: 0;
+    --event2F: 0;
+    --event3S: 0;
+    --event3F: 0;
+    --event4S: 0;
+    --event4F: 0;
+    --event5S: 0;
+    --event5F: 0;
+    --event6S: 0;
+    --event6F: 0;
+    --event7S: 0;
+    --event7F: 0;
+}
+
+
+/* NTS: body is not a class, you do not put a . before calling it */
+body{
+    margin: 0;
+    background-color: rgb(7, 3, 24);
+}
+.wrapper{
+    display: grid;
+    height: 100vh;
+    width: 100vw;
+    grid-template-columns: 1fr 65px 550px 125px 1fr;
+    grid-template-rows: 1fr 40px 700px 50px 1fr;
+}
+
+.app-wrapper{
+    /* background-color: #3B0D11; */
+    grid-column: 3 / 4;
+    grid-row: 3 / 4;
+}
+
+.app-heading{
+    font-family: 'Parisienne', cursive;
+    font-size: 4rem;
+        grid-row: 1 / 2;
+    align-self: end;
+    justify-self: center;
+    color: rgb(243, 243, 243);
+    letter-spacing: 0.1rem;
+    transition: all 0.3s;
+}
+
+#app-overview{
+    /* background: linear-gradient(to top, rgb(48, 10, 14), #3B0D11, rgb(48, 10, 14)); */
+
+    background: url(../img/leatherbook1.jpg);
+    background-repeat: no-repeat;
+    background-size: 552px 700px;
+    display: grid;
+    grid-template-columns: 30px 1fr 30px;
+    grid-template-rows: 200px 50px 1fr 55px 1fr 75px;
+}
+
+
+
+.main-heading{
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    align-self: end;
+    justify-self: center;
+    font-size: 2.5rem;
+    color: goldenrod;
+
+    font-family: 'Tangerine', cursive;
+}
+
+.hours-heading{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    text-align: center;
+    border: 1px solid #706563;
+    border-radius: 20px;
+    width: 70px;
+    height: 40px;
+    margin-left: 10px;
+    color: #6A3937;
+    background: radial-gradient(#F9F0D9, rgb(94, 85, 64));
+
+}
+
+#am-heading{
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+    margin-top: 5px;
+}
+
+#pm-heading{
+    grid-column: 1 / 2;
+    grid-row: 4 / 5;
+    margin-top: 10px;
+}
+
+.am-hours{
+    grid-column: 2 / 3;
+    grid-row: 3 / 4;
+    background-color: #3f3938;
+    grid-template-columns: repeat(12, 1fr);
+    display: grid;
+    grid-template-rows: 1.3rem 1fr;
+}
+
+
+.pm-hours{
+    grid-column: 2 / 3;
+    grid-row: 5 / 6;
+    background-color: #3f3938;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 1.3rem 1fr;
+}
+
+.hour{
+    text-align: center;
+    height: 100%;
+    border-bottom: 1px solid black;
+    margin-right: 1px;
+    color: #F9F0D9;
+    background-color: #706563;
+}
+.hour:last-child{
+    border-right: 0;
+}
+
+.timeslot{
+    background-color: #706563;
+    margin-right: 1px;
+}
+
+.event-time{
+    z-index: 30;
+}
+
+/* TASKS */
+#app-tasks{
+    background: linear-gradient(rgb(158, 146, 146), rgb(109, 106, 106));
+    background-size: cover;
+    border: 10px double rgb(255, 255, 255);
+    display: grid;
+    grid-template-rows: 150px 1.2rem 50px 1fr 50px;
+    grid-template-columns: 1fr;
+    overflow-y: auto;
+
+    /* remove scrollbar */
+    -ms-overflow-style: none;  /* IE 10+ */
+    scrollbar-width: none;  /* Firefox */
+}
+
+/* remove scroll bar safari/chrome */
+#app-tasks::-webkit-scrollbar{
+    display: none;
+}
+
+#tasks-heading{
+    color: black;
+}
+
+.create-task-wrapper{
+    grid-row: 3 / 4;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#create-task-btn{
+    width: 10rem;
+    height: 75%;
+    border-radius: 2rem;
+}
+
+#task-input{
+    border: none;
+    background-color: rgb(229, 226, 226);
+    font-style: italic;
+    grid-column: 2 / 3;
+    text-align: center;
+}
+
+.tasks-items{
+    grid-row: 4 / 5;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.task-item{
+    height: 2.7rem;
+    width: 75%;
+    background-color: rgb(229, 226, 226);
+    margin-bottom: 0.5rem;
+    display: grid;
+    grid-template-columns: 3.8rem 1fr 1.5rem 1.5rem 0.8rem;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 3rem;
+    text-align: center;
+}
+
+#task-completed{
+    background-color: #8ee68e;
+
+    
+}
+
+.task-item > p{
+    margin: 0;
+    grid-column: 2 / 3;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
+.task-item > div {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
+
+/* TASKS END */
+
+
+/* FITNESS */
+#app-fitness{
+    /* background: linear-gradient(to top, rgb(60, 60, 214), rgb(73, 73, 231), rgb(60, 60, 214)); */
+    background-image: url(../img/Fitness-bg.jpg);
+    background-size: cover;
+    border: 10px double rgb(184, 184, 184);
+    display: grid;
+    grid-template-rows: 150px 150px 50px 1fr;
+    grid-template-columns: 1fr;
+
+}
+
+#fitness-heading{
+
+}
+
+.add-workout-wrapper{
+    grid-row: 2 / 3;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    align-items: center;
+    justify-content: center;
+    grid-auto-flow: row;
+    border-top: 2px solid transparent;
+    border-bottom: 2px solid transparent;
+}
+
+#add-workout-wrapper-clicked{
+    /* background-image: url(../img/Fitness-bg-2.png); */
+    animation-name: workout-wrapper-anim;
+    animation-duration: 0.5s;
+    /* fill-mode so that animation freezes on last frame and doesn't reset */
+    animation-fill-mode: forwards;
+}
+
+@keyframes workout-wrapper-anim{
+    0%{opacity: 0}
+    95%{
+        background-color: rgba(240, 248, 255, 0.397);
+    }
+    100%{
+        background-image: url(../img/Fitness-bg-2.png);
+        border-bottom: 2px solid rgb(212, 212, 212);
+        border-top: 2px solid rgb(212, 212, 212);
+    }
+}
+
+#add-workout{
+    grid-row: 1 / -1;
+    grid-column: 1 / -1;
+    width: 30%;
+    font-size: 1.6rem;
+    justify-self: center;
+    align-self: center;
+    color: rgb(248, 248, 248);
+    background: linear-gradient(to top, #165f16, #228f22);
+    padding: 0.8rem;
+    border: 2px solid #0a2c0a;
+    border-radius: 25px;
+    text-align: center;
+    max-width: 200px;
+}
+
+.big-checkbox-wrapper{
+    grid-row: 1 / 2;
+    grid-column: 1 / -1;
+    display: flex;
+    justify-self: center;
+    align-self: center;
+}
+
+.checkbox-wrapper{
+    background-color: rgba(233, 233, 233, 0.301);
+    height: 4rem;
+    border: 1px solid white;
+    width: 5.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.1rem;
+
+    /* Prevents text highlighting */
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+        user-select: none; /* Non-prefixed version, currently
+                            supported by Chrome and Opera */
+
+}
+
+.fitness-input{
+    grid-row: 2 / 3;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.fitness-input > p{
+    font-size: 1.2rem;
+    color: white;
+    border-bottom: 1px dashed white;
+    width: 55%;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+.fitness-input > select{
+    height: 1.7rem;
+    width: 5rem;
+    text-align: center;
+    background: linear-gradient(to right, rgba(41, 41, 41, 0.616), rgba(75, 75, 75, 0.616));
+    border: 1px solid white;
+    border-radius: 1rem 1rem 0 0;
+    color: white;
+
+    /* Hides arrow */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    
+}
+.fitness-input > select:hover{
+    cursor: pointer;
+}
+
+.fitness-btns{
+    grid-row: 2 / 3;
+    grid-column: 2 / 3;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.fitness-btns > input:hover{
+    cursor: pointer;
+}
+
+#fitness-submit-btn{
+    height: 3.5rem;
+    width: 10rem;
+    justify-self: center;
+    border-radius: 1rem;
+    background: linear-gradient(forestgreen, #1c771c, #228b22);
+    border: 2px solid rgb(209, 209, 209);
+    color: white;
+}
+
+#fitness-x-btn{
+    grid-row: 2 / 3;
+    grid-column: 2 / 3;
+    height: 2.2rem;
+    width: 2.2rem;
+    border-radius: 50%;
+    background-color: red;
+    font-size: 1.2rem;
+    text-align: center;
+    border: 2px solid rgb(209, 209, 209);
+}
+
+#add-workout:hover{
+    cursor: pointer;
+}
+
+.chart-wrapper{
+    grid-row: 4 / 5;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+
+#my-chart{
+    max-width: 550px;
+    justify-self: center;
+}
+
+
+
+/* fitness END */
+
+
+
+/* EVENTS */
+.events{
+    background-color: red;
+    height: 100%;
+}
+
+.event-1{
+    grid-column: var(--event1S) / var(--event1F);
+}
+/* EVENTS END */
+
+
+/* BOOKTABS */
+.booktabs{
+    grid-column: 4 / 5;
+    grid-row: 3 / 4;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+
+.booktab{
+    height: 40px;
+    width: 100px;
+    margin-top: 15px;
+    padding-left: 0.7rem;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    border-radius: 0 20px 20px 0;
+    color: black;
+    font-family: 'Parisienne', cursive;
+
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
+#bt-highlight{
+    border: 4px solid gold;
+    border-left: none;
+}
+
+.overview-bt{
+    width: 115px;
+    margin-top: 4rem;
+    background: url(../img/overview-bt.JPG);
+    
+}
+
+.tasks-bt{
+    background: url(../img/tasks-bt.JPG);
+}
+
+.meals-bt{
+    background: url(../img/meals-bt.JPG);
+}
+
+.fitness-bt{
+    background: url(../img/fitness-bt.JPG);
+}
+
+.family-bt{
+    background: url(../img/family-bt.JPG);
+}
+
+.work-bt{
+    background: url(../img/work-bt.JPG);
+}
+
+.self-bt{
+    background: url(../img/self-bt.JPG);
+    color: white;
+}
+
+.exp-bt{
+    background: url(../img/exp-bt.JPG);
+    color: white;
+}
+/* BOOKTABS END */
